@@ -17,9 +17,9 @@ connectRount.post('/control-board', (req, res) => {
         const rev = `/burapat/board/pass/${userData.password}/callback`
         client.subscribe(rev, () => {
             client.on('message', (topic, mess) => {
-                console.log(mess , topic)
+                console.log(mess.toString('utf8'); , topic)
                 res.json({
-                    status: mess
+                    status: mess.toString('utf8');
                 })
                 client.end()
                 res.end()
